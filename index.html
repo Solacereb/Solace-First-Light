@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/assets/icon-192.png" />
+  <meta name="theme-color" content="#F7F5F2" />
+  <title>Solace — First Light</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <section class="hero">
+    <div class="card">
+      <img src="/assets/solace-logo.png" alt="Solace logo" class="logo" />
+      <div class="badge">First Light</div>
+      <h1>A sacred space to heal — gently, privately, your way.</h1>
+      <p>Private invite. PWA preview placeholder. The full experience is being prepared.</p>
+      <a class="cta" href="#" onclick="installPrompt && installPrompt.prompt()">Add to Home Screen</a>
+      <p class="small">If the button doesn’t appear, use your browser menu → <strong>Add to Home Screen</strong>.</p>
+    </div>
+  </section>
+
+  <script>
+    let installPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); installPrompt = e; });
+  </script>
+  <script src="/sw-register.js"></script>
+</body>
+</html>
