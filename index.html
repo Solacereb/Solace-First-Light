@@ -1,30 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="icon" href="/assets/icon-192.png" />
-  <meta name="theme-color" content="#F7F5F2" />
-  <title>Solace — First Light</title>
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
-  <section class="hero">
-    <div class="card">
-      <img src="/assets/solace-logo.png" alt="Solace logo" class="logo" />
-      <div class="badge">First Light</div>
-      <h1>A sacred space to heal — gently, privately, your way.</h1>
-      <p>Private invite. PWA preview placeholder. The full experience is being prepared.</p>
-      <a class="cta" href="#" onclick="installPrompt && installPrompt.prompt()">Add to Home Screen</a>
-      <p class="small">If the button doesn’t appear, use your browser menu → <strong>Add to Home Screen</strong>.</p>
-    </div>
-  </section>
+  <!-- Favicon -->
+<link rel="icon" href="/solace-brand-package-v3/web/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/solace-brand-package-v3/web/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/solace-brand-package-v3/web/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/solace-brand-package-v3/web/favicon-48.png">
 
-  <script>
-    let installPrompt = null;
-    window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); installPrompt = e; });
-  </script>
-  <script src="/sw-register.js"></script>
-</body>
-</html>
+<!-- Social preview -->
+<meta property="og:image" content="/solace-brand-package-v3/web/og-preview-1200x630.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
