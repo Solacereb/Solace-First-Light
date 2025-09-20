@@ -6,7 +6,7 @@
   <title>Solace — First Light</title>
 
   <!-- Favicons -->
-  <link rel="icon" href="solace-brand-package-v3/web/favicon.ico?v=3" type="image/x-icon">
+  <link rel="icon" href="solace-brand-package-v3/web/favicon.ico?v=4" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="16x16" href="solace-brand-package-v3/web/favicon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="solace-brand-package-v3/web/favicon-32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="solace-brand-package-v3/web/favicon-48.png">
@@ -17,24 +17,33 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <!-- Site CSS -->
-  <link rel="stylesheet" href="styles.css?v=7">
+  <!-- Site CSS (cache-busted) -->
+  <link rel="stylesheet" href="styles.css?v=9">
+  <style>
+    /* belt-and-suspenders: hide ANY <p> on the page */
+    p{display:none!important}
+  </style>
 </head>
 <body>
   <main class="hero">
-    <img src="solace-brand-package-v3/logos/solace-lockup-primary.png" alt="Solace — Peace in your pocket">
-    <!-- safeguard: if any stray <p> exists (old cache), it will be hidden by CSS below -->
+    <img src="solace-brand-package-v3/logos/solace-lockup-primary.png"
+         alt="Solace — Peace in your pocket">
   </main>
 
-  <!-- Unregister any old service workers so you see fresh HTML -->
+  <!-- Kill any stale service worker + caches -->
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister())).catch(()=>{});
-      // also clear old caches
-      if (window.caches && caches.keys) {
-        caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
-      }
-    }
+    (async () => {
+      try {
+        if ('serviceWorker' in navigator) {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          regs.forEach(r => r.unregister());
+        }
+        if (window.caches && caches.keys) {
+          const keys = await caches.keys();
+          await Promise.all(keys.map(k => caches.delete(k)));
+        }
+      } catch {}
+    })();
   </script>
 </body>
 </html>
