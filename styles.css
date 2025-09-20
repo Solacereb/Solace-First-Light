@@ -1,5 +1,8 @@
 :root {
-  --bg:#F7F5F2; --text:#1E2330; --muted:#4B5563; --pill:#ECE7F6;
+  --bg:#F7F5F2;
+  --text:#1E2330;
+  --muted:#4B5563;
+  --pill:#ECE7F6;
 }
 
 /* Base */
@@ -11,8 +14,7 @@ body {
 
 /* Layout */
 .hero {
-  /* mobile-safe full height */
-  min-height: min(100dvh, 900px);
+  min-height: min(100dvh, 900px);     /* mobile-safe full-height */
   display: grid;
   place-items: center;
   text-align: center;
@@ -20,33 +22,19 @@ body {
   background: #F7F5F2;
 }
 
-.card {
-  background: rgba(255,255,255,0.72);
-  backdrop-filter: blur(8px);
-  border-radius: 24px;
-  padding: 28px 24px;
-  max-width: 680px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
+/* Typography helpers (optional) */
+.small { font-size: 14px; color: var(--muted); margin-top: 16px; }
 
-/* UI bits */
-.logo { width:84px; height:84px; border-radius:999px; display:block; margin:0 auto 16px; box-shadow:0 6px 20px rgba(0,0,0,.08) }
-.badge { display:inline-block; margin-top:10px; padding:8px 16px; border-radius:999px; background:var(--pill); font-weight:600 }
-h1 { font-size:28px; margin:6px 0 8px; letter-spacing:.2px }
-p { color:var(--muted); line-height:1.6; margin:8px 0 }
-.cta { display:inline-block; margin-top:20px; padding:12px 18px; border-radius:12px; background:#1E2330; color:#fff; text-decoration:none; font-weight:600 }
-.small { font-size:12px; opacity:.85; margin-top:12px }
-
-/* --- Image sanity (fixes cropping) --- */
+/* Image sanity — prevents cropping and keeps it responsive */
 img, svg, picture, canvas, video {
   max-width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;  /* never crop */
+  object-fit: contain;
 }
 
-/* Avoid hidden clipping */
+/* Ensure parents don't clip content */
 header, main, section, footer, div { overflow: visible; }
 
-/* Optional: limit hero image width */
-.hero img { width: min(90vw, 720px); }
+/* Comfortable logo size */
+.hero img { width: min(80vw, 560px); }
