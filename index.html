@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Solace — First Light</title>
 
-  <!-- Favicons (relative paths for GitHub Pages project sites) -->
+  <!-- Favicons -->
   <link rel="icon" href="solace-brand-package-v3/web/favicon.ico?v=3" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="16x16" href="solace-brand-package-v3/web/favicon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="solace-brand-package-v3/web/favicon-32.png">
@@ -18,19 +18,22 @@
   <meta property="og:image:height" content="630">
 
   <!-- Site CSS -->
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <main class="hero">
-    <img
-      src="solace-brand-package-v3/logos/solace-lockup-primary.png"
-      alt="Solace — Peace in your pocket">
+    <img src="solace-brand-package-v3/logos/solace-lockup-primary.png" alt="Solace — Peace in your pocket">
+    <!-- safeguard: if any stray <p> exists (old cache), it will be hidden by CSS below -->
   </main>
 
-  <!-- Clear any stale service worker -->
+  <!-- Unregister any old service workers so you see fresh HTML -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(r => r.forEach(x => x.unregister())).catch(()=>{});
+      navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister())).catch(()=>{});
+      // also clear old caches
+      if (window.caches && caches.keys) {
+        caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
+      }
     }
   </script>
 </body>
