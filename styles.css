@@ -12,7 +12,7 @@ body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, H
 
 /* Layout */
 .hero {
-  min-height: min(100dvh, 900px);
+  min-height: min(100dvh, 900px);     /* mobile-safe full height */
   display: grid;
   place-items: center;
   text-align: center;
@@ -20,7 +20,7 @@ body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, H
   background: #F7F5F2;
 }
 
-/* Media sanity */
+/* Media sanity — responsive, never cropped */
 img, svg, picture, canvas, video {
   max-width: 100%;
   height: auto;
@@ -28,7 +28,8 @@ img, svg, picture, canvas, video {
   object-fit: contain;
 }
 
+/* Prevent accidental clipping */
 header, main, section, footer, div { overflow: visible; }
 
-/* Comfortable logo size */
+/* Comfortable logo size (adjust if you want smaller/bigger) */
 .hero img { width: min(80vw, 560px); }
