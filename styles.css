@@ -34,3 +34,30 @@ section, header, main, footer { overflow: visible; }
 .hero img {
   width: min(90vw, 720px); /* scale down on small screens */
 }
+/* --- Fix image cropping / scaling --- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+/* Make all media scale down and never crop */
+img, svg, picture, video, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;   /* key: prevents cropping */
+}
+
+/* Avoid parent containers clipping content */
+header, main, section, footer, div {
+  overflow: visible;     /* remove hidden clipping */
+}
+
+/* Optional: a centered hero section for your big logo */
+.hero {
+  padding: clamp(24px, 6vw, 96px) 5vw;
+  display: grid;
+  place-items: center;
+  min-height: min(100dvh, 900px);  /* mobile-safe full height */
+}
+.hero img {
+  width: min(90vw, 720px); /* scales responsively */
+}
