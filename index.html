@@ -6,7 +6,29 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/solace-brand-package-v3/web/favicon-16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/solace-brand-package-v3/web/favicon-32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/solace-brand-package-v3/web/favicon-48.png">
+/* universal sane defaults for images */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 
+img, svg, picture, canvas, video {
+  max-width: 100%;
+  height: auto;
+  display: block;         /* no inline gaps */
+  object-fit: contain;    /* never crop inside its box */
+}
+
+section, header, main, footer { overflow: visible; }
+
+/* optional hero container for your logo/image */
+.hero {
+  padding: clamp(24px, 6vw, 96px) 5vw;
+  display: grid;
+  place-items: center;    /* center the image */
+  min-height: min(100dvh, 900px); /* full screen but mobile-safe */
+}
+.hero img {
+  width: min(90vw, 720px); /* scale down on small screens */
+}
 <!-- Social preview -->
 <meta property="og:image" content="/solace-brand-package-v3/web/og-preview-1200x630.png">
 <meta property="og:image:type" content="image/png">
