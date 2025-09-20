@@ -8,13 +8,11 @@
 /* Base */
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
-body {
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-}
+body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
 
 /* Layout */
 .hero {
-  min-height: min(100dvh, 900px);     /* mobile-safe full-height */
+  min-height: min(100dvh, 900px);
   display: grid;
   place-items: center;
   text-align: center;
@@ -22,10 +20,7 @@ body {
   background: #F7F5F2;
 }
 
-/* Typography helpers (optional) */
-.small { font-size: 14px; color: var(--muted); margin-top: 16px; }
-
-/* Image sanity — prevents cropping and keeps it responsive */
+/* Media sanity */
 img, svg, picture, canvas, video {
   max-width: 100%;
   height: auto;
@@ -33,7 +28,6 @@ img, svg, picture, canvas, video {
   object-fit: contain;
 }
 
-/* Ensure parents don't clip content */
 header, main, section, footer, div { overflow: visible; }
 
 /* Comfortable logo size */
