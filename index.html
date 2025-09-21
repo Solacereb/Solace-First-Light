@@ -5,32 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Solace — First Light</title>
 
-  <!-- Favicons -->
-  <link rel="icon" href="solace-brand-package-v3/web/favicon.ico?v=4" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="16x16" href="solace-brand-package-v3/web/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="solace-brand-package-v3/web/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="solace-brand-package-v3/web/favicon-48.png">
+  <!-- Favicons (optional) -->
+  <link rel="icon" href="solace-brand-package-v3/web/favicon.ico?v=10">
 
-  <!-- Social preview -->
-  <meta property="og:image" content="https://solacereb.github.io/Solace-First-Light/solace-brand-package-v3/web/og-preview-1200x630.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <!-- Site CSS (cache-busted) -->
-  <link rel="stylesheet" href="styles.css?v=9">
+  <!-- Inline CSS (no external stylesheet to avoid cache) -->
   <style>
-    /* belt-and-suspenders: hide ANY <p> on the page */
-    p{display:none!important}
+    :root { --bg:#F7F5F2; --text:#1E2330; }
+    * { box-sizing:border-box }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--text); }
+    .hero { min-height:min(100dvh,900px); display:grid; place-items:center; padding:5vw; }
+    img { max-width:100%; height:auto; display:block; object-fit:contain; width:min(80vw,560px); }
+    /* Hard kill: hide ANY paragraph that might exist in a cached DOM */
+    p { display:none !important; }
   </style>
 </head>
 <body>
   <main class="hero">
-    <img src="solace-brand-package-v3/logos/solace-lockup-primary.png"
+    <img src="solace-brand-package-v3/logos/solace-lockup-primary.png?v=10"
          alt="Solace — Peace in your pocket">
   </main>
 
-  <!-- Kill any stale service worker + caches -->
+  <!-- Nuke stale service workers and caches -->
   <script>
     (async () => {
       try {
