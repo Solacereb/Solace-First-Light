@@ -4,28 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Solace — First Light</title>
-
-  <!-- Favicons (optional) -->
-  <link rel="icon" href="solace-brand-package-v3/web/favicon.ico?v=10">
-
-  <!-- Inline CSS (no external stylesheet to avoid cache) -->
+  <link rel="icon" href="solace-brand-package-v3/web/favicon.ico?v=12">
   <style>
     :root { --bg:#F7F5F2; --text:#1E2330; }
     * { box-sizing:border-box }
     html,body { margin:0; padding:0; background:var(--bg); color:var(--text); }
     .hero { min-height:min(100dvh,900px); display:grid; place-items:center; padding:5vw; }
     img { max-width:100%; height:auto; display:block; object-fit:contain; width:min(80vw,560px); }
-    /* Hard kill: hide ANY paragraph that might exist in a cached DOM */
+    /* hard kill: hide ANY paragraphs */
     p { display:none !important; }
   </style>
 </head>
 <body>
   <main class="hero">
-    <img src="solace-brand-package-v3/logos/solace-lockup-primary.png?v=10"
-         alt="Solace — Peace in your pocket">
+    <img src="solace-brand-package-v3/logos/solace-lockup-primary.png?v=12" alt="Solace">
   </main>
-
-  <!-- Nuke stale service workers and caches -->
   <script>
     (async () => {
       try {
