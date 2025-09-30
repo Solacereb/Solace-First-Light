@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solace Debug</title>
+  <style>
+    :root { --bg:#F7F5F2; --text:#1E2330; }
+    * { box-sizing:border-box }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--text); }
+    .hero { min-height:min(100dvh,900px); display:grid; place-items:center; padding:5vw; }
+    img { max-width:100%; height:auto; display:block; object-fit:contain; width:min(80vw,560px); }
+    /* hide ANY paragraph text, just in case */
+    p { display:none !important; }
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <img src="solace-brand-package-v3/logos/solace-lockup-primary.png?v=42" alt="Solace">
+  </main>
+  <script>
+    // Nuke any stale service workers & caches for this scope
+    (async () => {
+      try {
+        if ('serviceWorker' in navigator) {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          regs.forEach(r => r.unregister());
+        }
+        if (window.caches && caches.keys) {
+          const keys = await caches.keys();
+          await Promise.all(keys.map(k => caches.delete(k)));
+        }
+      } catch {}
+    })();
+  </script>
+</body>
+</html>
